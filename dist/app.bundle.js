@@ -96,10 +96,12 @@
 	
 	var pusher = new _pusherJs2.default('8c7355ea088bc48d48bf', {
 	    cluster: 'eu',
-	    encrypted: true
+	    encrypted: true,
+	    authEndpoint: 'https://i9yrs-142915.appspot.com/auth',
+	    authTransport: 'jsonp'
 	});
 	
-	(0, _pushclient2.default)(pusher, _store.store);
+	(0, _pushclient2.default)(pusher, _store.store, 'a');
 	(0, _timer2.default)(_store.store);
 	
 	(0, _reactDom.render)(_react2.default.createElement(
@@ -54967,8 +54969,11 @@
 	
 	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 	
-	var bindPush = function bindPush(pusher, store) {
-	    var channel = pusher.subscribe('timeupdate');
+	var bindPush = function bindPush(pusher, store, id) {
+	    var channel = pusher.subscribe('private-sync');
+	    channel.bind('pusher:subscription_succeeded', function (data) {
+	        var evt = channel.trigger('client-online', { client: id });
+	    });
 	    channel.bind('countdown', function (data) {
 	        if (data.endtime) {
 	            //const event = moment("201706101800","YYYYMMDDhhmm")

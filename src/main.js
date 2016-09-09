@@ -16,10 +16,12 @@ console.log(window.location.href);
 
 const pusher = new Pusher('8c7355ea088bc48d48bf', {
     cluster: 'eu',
-    encrypted: true
+    encrypted: true,
+    authEndpoint:'https://i9yrs-142915.appspot.com/auth',
+    authTransport: 'jsonp'
 });
 
-bindPush(pusher, store);
+bindPush(pusher, store,'a');
 timer(store);
 
 render((
