@@ -2,12 +2,12 @@ import React, {PropTypes} from 'react';
 import {connect} from 'react-redux'
 import * as events from '../../events'
 
-const TaskPage = ({tasks, params:{taskid}, handleChange})=> {
+const TaskPage = ({tasks, params:{taskid}, selectedQuest, handleChange})=> {
     const task = tasks[taskid];
     return (
         <div>
             <div className="text-center lead">
-                Oppgave {task.tasknumber}
+                Team {selectedQuest}, oppgave {task.tasknumber}
             </div>
             <div className="text-center">
                 <h3>{task.place}</h3>
@@ -35,7 +35,7 @@ const TaskPage = ({tasks, params:{taskid}, handleChange})=> {
 };
 
 const mapStateToProps = (state)=> {
-    return {tasks: state.quest.tasks}
+    return {tasks: state.quest.tasks,selectedQuest:state.quest.selectedQuest}
 };
 
 const mapDispatchToProps = (dispatch) => {

@@ -8,7 +8,7 @@ const itemBg = (solved) => {
 };
 
 const ProgressItem = ({item, selected, selectProgress})=>(
-    <td onClick={selectProgress} style={{height: "60px", width: "25%", border: "1px solid white", textAlign: "center"}}>
+    <td onClick={selectProgress} style={{height: "60px", width: "33%", border: "1px solid white", textAlign: "center"}}>
         <div style={itemBg(item.solved)}>
             <div className="lead" style={{paddingTop: "20px"}}>
                 {item.tasknumber}
@@ -16,7 +16,7 @@ const ProgressItem = ({item, selected, selectProgress})=>(
         </div>
     </td>
 );
-const ProgressMenu = ({items}, context) => {
+const ProgressMenu = ({items,selectedQuest}, context) => {
     return (<table style={{width: "100%"}}>
             <tbody>
             <tr style={{height: "60px"}}>
@@ -27,7 +27,7 @@ const ProgressMenu = ({items}, context) => {
                             item={item}
                             selectProgress={(event)=> {
                                 event.preventDefault();
-                                return context.router.push('/' + item.taskid)
+                                return context.router.push('/' + selectedQuest + '/' +item.taskid)
                             }}
                         />))}
             </tr>
@@ -43,7 +43,7 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 const mapStateToProps = (state)=> {
-    return {items: _.values(state.quest.tasks)}
+    return {items: _.values(state.quest.tasks),selectedQuest:state.quest.selectedQuest}
 };
 
 const ProgressMenuContainer = connect(

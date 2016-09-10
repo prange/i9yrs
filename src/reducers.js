@@ -8,12 +8,170 @@ import geolib from 'geolib'
 
 const exampleQuestsStore =
 {
-    questid: "8f65j63",
-    selectedTask: "8g74j38",
+    selectedQuest: "1",
+    selectedTask: "1",
+    quests: [
+        {
+            tasks: {
+                "1": {
+                    tasknumber: 1,
+                    taskid: "1",
+                    solved: false,
+                    answer: '',
+                    place: "Huset",
+                    ttext: "Hva er fargen på gjerdet",
+                    location: {
+                        latitude: 63.430113,
+                        longitude: 10.436191
+                    },
+                    directions: {
+                        bearing: 1,
+                        direction: 0
+                    }
+                },
+                "2": {
+                    tasknumber: 2,
+                    taskid: "2",
+                    solved: false,
+                    answer: '',
+                    place: "Bunkeren",
+                    ttext: "Hvor mange dører har den?",
+                    location: {
+                        latitude: 62.430113,
+                        longitude: 9.436191
+                    },
+                    directions: {
+                        bearing: 1,
+                        direction: 0
+                    }
+                },
+                "3": {
+                    tasknumber: 3,
+                    taskid: "3",
+                    solved: false,
+                    answer: '',
+                    place: "Kjelleren i huset til Isak",
+                    ttext: "",
+                    location: {
+                        latitude: 63.430113,
+                        longitude: 10.436191
+                    },
+                    directions: {
+                        bearing: 1,
+                        direction: 0
+                    }
+                }
+            }
+        },
+        {
+            tasks: {
+                "1": {
+                    tasknumber: 1,
+                    taskid: "1",
+                    solved: false,
+                    answer: '',
+                    place: "Aastahagen",
+                    ttext: "Hvilken form har taket",
+                    location: {
+                        latitude: 63.430113,
+                        longitude: 10.436191
+                    },
+                    directions: {
+                        bearing: 1,
+                        direction: 0
+                    }
+                },
+                "2": {
+                    tasknumber: 2,
+                    taskid: "2",
+                    solved: false,
+                    answer: '',
+                    place: "Tordenskjold",
+                    ttext: "Hvilken form har hjulene?",
+                    location: {
+                        latitude: 62.430113,
+                        longitude: 9.436191
+                    },
+                    directions: {
+                        bearing: 1,
+                        direction: 0
+                    }
+                },
+                "3": {
+                    tasknumber: 3,
+                    taskid: "3",
+                    solved: false,
+                    answer: '',
+                    place: "Majorstuen",
+                    ttext: "På lekeplassen står det et kunstverk som lyser. Hva er formen på det som lyser",
+                    location: {
+                        latitude: 63.430113,
+                        longitude: 10.436191
+                    },
+                    directions: {
+                        bearing: 1,
+                        direction: 0
+                    }
+                }
+            }
+        },
+        {
+            tasks: {
+                "1": {
+                    tasknumber: 1,
+                    taskid: "1",
+                    solved: false,
+                    answer: '',
+                    place: "Bunker 18",
+                    ttext: "Hva er formen på døra nærmest persaunetveien",
+                    location: {
+                        latitude: 63.430113,
+                        longitude: 10.436191
+                    },
+                    directions: {
+                        bearing: 1,
+                        direction: 0
+                    }
+                },
+                "2": {
+                    tasknumber: 2,
+                    taskid: "2",
+                    solved: false,
+                    answer: '',
+                    place: "Huset til pappaen til Isak",
+                    ttext: "På vegen ved oppgangen henger det et svart skilt på veggen, hva er formen på figuren på skiltet?",
+                    location: {
+                        latitude: 62.430113,
+                        longitude: 9.436191
+                    },
+                    directions: {
+                        bearing: 1,
+                        direction: 0
+                    }
+                },
+                "3": {
+                    tasknumber: 3,
+                    taskid: "3",
+                    solved: false,
+                    answer: '',
+                    place: "Tregården restaurant",
+                    ttext: "Lekestativet har en lite tunell, hva er formen på tunellen?",
+                    location: {
+                        latitude: 63.430113,
+                        longitude: 10.436191
+                    },
+                    directions: {
+                        bearing: 1,
+                        direction: 0
+                    }
+                }
+            }
+        }
+    ],
     tasks: {
-        "8g74j38": {
+        "1": {
             tasknumber: 1,
-            taskid: "8g74j38",
+            taskid: "1",
             solved: false,
             answer: '',
             place: "Huset",
@@ -24,12 +182,12 @@ const exampleQuestsStore =
             },
             directions: {
                 bearing: 1,
-                direction:0
+                direction: 0
             }
         },
-        "495793j": {
+        "2": {
             tasknumber: 2,
-            taskid: "495793j",
+            taskid: "2",
             solved: false,
             answer: '',
             place: "Bunkeren",
@@ -40,28 +198,12 @@ const exampleQuestsStore =
             },
             directions: {
                 bearing: 1,
-                direction:0
+                direction: 0
             }
         },
-        "8g74j39": {
+        "3": {
             tasknumber: 3,
-            taskid: "8g74j39",
-            solved: false,
-            answer: '',
-            place: "Barnehagen",
-            ttext: "Gå til barnehagen, hvilken form har vinduene",
-            location: {
-                latitude: 43.430113,
-                longitude: 10.436191
-            },
-            directions: {
-                bearing: 1,
-                direction:0
-            }
-        },
-        "8k74j39": {
-            tasknumber: 4,
-            taskid: "8k74j39",
+            taskid: "3",
             solved: false,
             answer: '',
             place: "Kjelleren i huset til Isak",
@@ -72,7 +214,7 @@ const exampleQuestsStore =
             },
             directions: {
                 bearing: 1,
-                direction:0
+                direction: 0
             }
         }
     }
@@ -90,7 +232,7 @@ const getUpdatedDirections =
         const heading =
             currentPos.heading;
 
-        return {distance: dist, direction: bearing-heading};
+        return {distance: dist, direction: bearing - heading};
     };
 
 const questReducer =
@@ -107,8 +249,14 @@ const questReducer =
                 const answerLens = L.ofPath('tasks', action.value.taskid, 'answer');
                 const stateWithUpdatedAnswer = L.set(answerLens, action.value.value, state);
                 const solvedLens = L.ofPath('tasks', action.value.taskid, 'solved');
-                const udpatedStateWithSolved = L.set(solvedLens, action.value.value, stateWithUpdatedAnswer);
-                return udpatedStateWithSolved;
+                return L.set(solvedLens, action.value.value, stateWithUpdatedAnswer);
+            }
+            case events.SELECT_QUEST:{
+                const quest = state.quests[action.value.team - 1].tasks;
+                const questLens = L.of('tasks');
+                const selectedQuestLens = L.of('selectedQuest');
+                const stateWithSelectedQuest = L.set(selectedQuestLens,action.value.team,state);
+                return L.set(questLens, quest, stateWithSelectedQuest);
             }
             default:
                 return state;

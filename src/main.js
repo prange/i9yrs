@@ -7,31 +7,22 @@ import TaskPage from './view/questions/TaskPage'
 import {store} from "./store"
 import {Router, Route, IndexRoute, Link, hashHistory} from 'react-router'
 import Bootstrap from 'bootstrap/dist/css/bootstrap.css';
-import Pusher from 'pusher-js'
-import bindPush from './process/pushclient'
 import timer from './process/timer'
 import bindLocation from './process/location'
+import * as events from './events'
 
 console.log(store.getState());
 console.log(window.location.href);
 
-const pusher = new Pusher('8c7355ea088bc48d48bf', {
-    cluster: 'eu',
-    encrypted: true,
-    authEndpoint:'https://i9yrs-142915.appspot.com/auth',
-    authTransport: 'jsonp'
-});
 
-bindPush(pusher, store,'a');
 timer(store);
 bindLocation(store);
-
 render((
     <Provider store={store}>
         <Router history={hashHistory}>
             <Route path="/" component={App}>
-                <IndexRoute component={StartPage}/>
-                <Route path=":taskid" component={TaskPage}/>
+                <Route path=":team" component={StartPage} onEnter={(state)=>store.dispatch(events.selectQuest(state.params.team))}/>
+                <Route path=":team/:taskid" component={TaskPage}/>
             </Route>
         </Router>
     </Provider>
