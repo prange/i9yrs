@@ -3,8 +3,8 @@ import {connect} from 'react-redux'
 import moment from 'moment'
 
 const RemainingPanel = ({endtime})=> (
-    <div>
-        {endtime}
+    <div style={{padding:"10px"}}>
+        <span>{endtime}</span>
     </div>);
 
 const mapDispatchToProps = (dispatch) => {

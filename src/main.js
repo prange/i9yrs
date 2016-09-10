@@ -10,6 +10,7 @@ import Bootstrap from 'bootstrap/dist/css/bootstrap.css';
 import Pusher from 'pusher-js'
 import bindPush from './process/pushclient'
 import timer from './process/timer'
+import bindLocation from './process/location'
 
 console.log(store.getState());
 console.log(window.location.href);
@@ -23,6 +24,7 @@ const pusher = new Pusher('8c7355ea088bc48d48bf', {
 
 bindPush(pusher, store,'a');
 timer(store);
+bindLocation(store);
 
 render((
     <Provider store={store}>

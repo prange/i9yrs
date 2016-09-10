@@ -1,91 +1,126 @@
 import {cp} from './util'
 import {combineReducers} from 'redux'
+import * as fp from 'lodash/fp'
 import * as events from './events';
 import * as L from 'js-lenses'
 import moment from 'moment'
+import geolib from 'geolib'
 
 const exampleQuestsStore =
 {
-    endtimestamp: 87654321,
     questid: "8f65j63",
     selectedTask: "8g74j38",
     tasks: {
         "8g74j38": {
             tasknumber: 1,
             taskid: "8g74j38",
-            solved: true,
-            answer: 'OK',
-            ttext: "Gå til huset",
+            solved: false,
+            answer: '',
+            place: "Huset",
+            ttext: "Hva er fargen på gjerdet",
             location: {
-                lat: 123456789,
-                long: 123456789
+                latitude: 63.430113,
+                longitude: 10.436191
             },
             directions: {
-                direction: 1,
-                distance: 2
+                bearing: 1,
+                direction:0
             }
         },
         "495793j": {
             tasknumber: 2,
             taskid: "495793j",
             solved: false,
-            answer: 'rød',
-            ttext: "Hva er fargen på den innerste døra",
+            answer: '',
+            place: "Bunkeren",
+            ttext: "Hvor mange dører har den?",
+            location: {
+                latitude: 62.430113,
+                longitude: 9.436191
+            },
+            directions: {
+                bearing: 1,
+                direction:0
+            }
         },
         "8g74j39": {
             tasknumber: 3,
             taskid: "8g74j39",
             solved: false,
             answer: '',
-            ttext: "Gå til bunkeren",
+            place: "Barnehagen",
+            ttext: "Gå til barnehagen, hvilken form har vinduene",
             location: {
-                lat: 123456789,
-                long: 123456789
+                latitude: 43.430113,
+                longitude: 10.436191
             },
             directions: {
-                direction: 1,
-                distance: 2
+                bearing: 1,
+                direction:0
+            }
+        },
+        "8k74j39": {
+            tasknumber: 4,
+            taskid: "8k74j39",
+            solved: false,
+            answer: '',
+            place: "Kjelleren i huset til Isak",
+            ttext: "",
+            location: {
+                latitude: 63.430113,
+                longitude: 10.436191
+            },
+            directions: {
+                bearing: 1,
+                direction:0
             }
         }
     }
 };
 
+
+const getUpdatedDirections =
+    (currentPos, task) => {
+        const dist =
+            geolib.getDistance({latitude: currentPos.latitude, longitude: currentPos.longitude}, task.location);
+
+        const bearing =
+            geolib.getBearing({latitude: currentPos.latitude, longitude: currentPos.longitude}, task.location);
+
+        const heading =
+            currentPos.heading;
+
+        return {distance: dist, direction: bearing-heading};
+    };
 
 const questReducer =
     (state = exampleQuestsStore, action) => {
         switch (action.type) {
-            case events.SET_DIRECTION : {
-                const updateDirection = L.ofPath('task', action.value.taskid, 'directions');
-                return L.set(updateDirection, action.value.directions, state);
+            case events.SET_LOCATION: {
+                return fp.reduce((sum, taskid)=> {
+                    const newDirections = getUpdatedDirections(action.value.location, state.tasks[taskid]);
+                    const updateDirection = L.ofPath('tasks', taskid, 'directions');
+                    return L.set(updateDirection, newDirections, sum);
+                }, state)(fp.keys(state.tasks));
+            }
+            case events.UPDATE_ANSWER: {
+                const answerLens = L.ofPath('tasks', action.value.taskid, 'answer');
+                const stateWithUpdatedAnswer = L.set(answerLens, action.value.value, state);
+                const solvedLens = L.ofPath('tasks', action.value.taskid, 'solved');
+                const udpatedStateWithSolved = L.set(solvedLens, action.value.value, stateWithUpdatedAnswer);
+                return udpatedStateWithSolved;
             }
             default:
-                return state
+                return state;
         }
 
     };
 
 
-const exampleDeviceStore =
-{
-    currentLocation: {
-        lat: 1,
-        long: 2
-    }
-};
-
-const deviceReducer =
-    (state = exampleDeviceStore, action)=> {
-        switch (action.type) {
-            case events.UPDATENAME:
-                return cp(state, {name: action.value.name ? action.value.name : state.name});
-            default:
-                return state
-        }
-    };
 const exampleTimeStore = {
-    endtime: moment().add(30, "m").valueOf(),
-    remaining: moment().to(moment().add(30, "m")).valueOf()
-}
+    endtime: moment("201609111400", "YYYYMMDDhhmm").valueOf(),
+    remaining: moment().to(moment("201609111400", "YYYYMMDDhhmm")).valueOf()
+};
 
 const timeReducer =
     (state = exampleTimeStore, action)=> {
@@ -102,7 +137,6 @@ const timeReducer =
 export const combined =
     combineReducers({
         quest: questReducer,
-        device: deviceReducer,
         time: timeReducer
     });
 

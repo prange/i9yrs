@@ -3,7 +3,7 @@ export const SET_LOCATION = 'SET_LOCATION';
 export const UPDATENAME = 'UPDATENAME';
 export const SET_END_TIME = 'SET_END_TIME';
 export const SET_REMAINING_TIME = 'SET_REMAINING_TIME';
-
+export const UPDATE_ANSWER = 'UPDATE_ANSWER';
 export const action =
     (type, value) => {
         return {type: type, value: value}
@@ -23,3 +23,6 @@ export const setEndTime =
 
 export const setRemainingTime =
     (now) => action(SET_REMAINING_TIME, {now: now});
+
+export const updateAnswer =
+    (taskid, value) => action(UPDATE_ANSWER, {taskid, value});
