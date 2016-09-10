@@ -39458,12 +39458,14 @@
 	        _react2.default.createElement(
 	            'div',
 	            { className: 'text-center lead' },
-	            'Avstand: ',
 	            task.directions.distance,
-	            'm - Retning: ',
+	            'm',
 	            _react2.default.createElement(
 	                'div',
-	                { style: { transform: 'rotate(-' + task.directions.direction + 'deg)' } },
+	                { style: {
+	                        transform: 'rotate(-' + task.directions.direction + 'deg)',
+	                        fontSize: "22px"
+	                    } },
 	                '↑'
 	            )
 	        ),

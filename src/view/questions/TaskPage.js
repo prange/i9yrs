@@ -13,7 +13,12 @@ const TaskPage = ({tasks, params:{taskid}, selectedQuest, handleChange})=> {
                 <h3>{task.place}</h3>
             </div>
             <div className="text-center lead">
-                Avstand: {task.directions.distance}m - Retning: <div style={{transform:'rotate(-' + task.directions.direction + 'deg)'}}>&#8593;</div>
+                {task.directions.distance}m
+
+                <div style={{
+                    transform: 'rotate(-' + task.directions.direction + 'deg)',
+                    fontSize:"22px"
+                }}>&#8593;</div>
             </div>
             <div className="text-center lead">
                 <h1>{task.ttext}</h1>
@@ -22,7 +27,7 @@ const TaskPage = ({tasks, params:{taskid}, selectedQuest, handleChange})=> {
                 <div className="form-group">
                     <label htmlFor="exampleInputEmail1">Skriv svaret her:</label>
                     <input
-                        style={{fontFamily:"monospace"}}
+                        style={{fontFamily: "monospace"}}
                         id="exampleInputEmail1"
                         className="form-control"
                         type="text"
@@ -35,7 +40,7 @@ const TaskPage = ({tasks, params:{taskid}, selectedQuest, handleChange})=> {
 };
 
 const mapStateToProps = (state)=> {
-    return {tasks: state.quest.tasks,selectedQuest:state.quest.selectedQuest}
+    return {tasks: state.quest.tasks, selectedQuest: state.quest.selectedQuest}
 };
 
 const mapDispatchToProps = (dispatch) => {
