@@ -16,6 +16,6 @@ const mapStateToProps = (state)=> {
     return {items: state.quest.tasks}
 };
 
-const StartPageContainer = connect(mapDispatchToProps, mapStateToProps)(StartPage);
+const StartPageContainer = connect(mapStateToProps,mapDispatchToProps)(StartPage);
 
 export default StartPageContainer

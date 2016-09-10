@@ -39375,7 +39375,7 @@
 	    return { items: state.quest.tasks };
 	};
 	
-	var StartPageContainer = (0, _reactRedux.connect)(mapDispatchToProps, mapStateToProps)(StartPage);
+	var StartPageContainer = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(StartPage);
 	
 	exports.default = StartPageContainer;
 
