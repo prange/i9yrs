@@ -7,7 +7,15 @@ import moment from 'moment'
 import geolib from 'geolib'
 
 
-
+/*
+ * Lat long
+ * Bak Bunker 18 63.430939, 10.440273
+ * Lekeplassen ved huset mitt 63.429326, 10.443240
+ * Veien bak huset mitt : 63.428849, 10.443497
+ * Det bruen huset ved grusbanen 63.431143, 10.447472
+ * Branntrappa 63.429091, 10.443808
+ * Lekeplassen 63.432436, 10.444699
+ * */
 
 const exampleQuestsStore =
 {
@@ -109,8 +117,8 @@ const exampleQuestsStore =
                     place: "Lekeplassen bak det røde huset",
                     ttext: "Hvor mange mange vinduer har det lille huset ved siden av trampolinen?",
                     location: {
-                        latitude: 63.430939,
-                        longitude: 10.440273
+                        latitude: 63.432436,
+                        longitude: 10.444699
                     },
                     directions: {
                         bearing: 1,
@@ -119,15 +127,7 @@ const exampleQuestsStore =
                 }
             }
         },
-        /*
-         * Lat long
-         * Bak Bunker 18 63.430939, 10.440273
-         * Lekeplassen ved huset mitt 63.429326, 10.443240
-         * Veien bak huset mitt : 63.428849, 10.443497
-         * Det bruen huset ved grusbanen 63.431143, 10.447472
-         * Branntrappa 63.429091, 10.443808
-         * Lekeplassen 63.432436, 10.444699
-         * */
+
         {
             tasks: {
                 "1": {
@@ -138,8 +138,8 @@ const exampleQuestsStore =
                     place: "Lekeplassen bak det røde huset",
                     ttext: "Hvor mange mange vinduer har det lille huset ved siden av trampolinen?",
                     location: {
-                        latitude: 63.430939,
-                        longitude: 10.440273
+                        latitude: 63.432436,
+                        longitude: 10.444699
                     },
                     directions: {
                         bearing: 1,

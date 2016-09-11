@@ -39861,6 +39861,16 @@
 	
 	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 	
+	/*
+	 * Lat long
+	 * Bak Bunker 18 63.430939, 10.440273
+	 * Lekeplassen ved huset mitt 63.429326, 10.443240
+	 * Veien bak huset mitt : 63.428849, 10.443497
+	 * Det bruen huset ved grusbanen 63.431143, 10.447472
+	 * Branntrappa 63.429091, 10.443808
+	 * Lekeplassen 63.432436, 10.444699
+	 * */
+	
 	var exampleQuestsStore = {
 	    selectedQuest: "1",
 	    selectedTask: "1",
@@ -39957,8 +39967,8 @@
 	                place: "Lekeplassen bak det røde huset",
 	                ttext: "Hvor mange mange vinduer har det lille huset ved siden av trampolinen?",
 	                location: {
-	                    latitude: 63.430939,
-	                    longitude: 10.440273
+	                    latitude: 63.432436,
+	                    longitude: 10.444699
 	                },
 	                directions: {
 	                    bearing: 1,
@@ -39966,17 +39976,7 @@
 	                }
 	            }
 	        }
-	    },
-	    /*
-	     * Lat long
-	     * Bak Bunker 18 63.430939, 10.440273
-	     * Lekeplassen ved huset mitt 63.429326, 10.443240
-	     * Veien bak huset mitt : 63.428849, 10.443497
-	     * Det bruen huset ved grusbanen 63.431143, 10.447472
-	     * Branntrappa 63.429091, 10.443808
-	     * Lekeplassen 63.432436, 10.444699
-	     * */
-	    {
+	    }, {
 	        tasks: {
 	            "1": {
 	                tasknumber: 1,
@@ -39986,8 +39986,8 @@
 	                place: "Lekeplassen bak det røde huset",
 	                ttext: "Hvor mange mange vinduer har det lille huset ved siden av trampolinen?",
 	                location: {
-	                    latitude: 63.430939,
-	                    longitude: 10.440273
+	                    latitude: 63.432436,
+	                    longitude: 10.444699
 	                },
 	                directions: {
 	                    bearing: 1,
