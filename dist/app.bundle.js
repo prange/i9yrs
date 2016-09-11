@@ -39954,11 +39954,11 @@
 	                taskid: "3",
 	                solved: false,
 	                answer: '',
-	                place: "Det brune huset ved grusbanen",
-	                ttext: "I garasjen til huset, hva er formen på bjelken i taket",
+	                place: "Lekeplassen bak det røde huset",
+	                ttext: "Hvor mange mange vinduer har det lille huset ved siden av trampolinen?",
 	                location: {
-	                    latitude: 63.431143,
-	                    longitude: 10.447472
+	                    latitude: 63.430939,
+	                    longitude: 10.440273
 	                },
 	                directions: {
 	                    bearing: 1,
@@ -39974,8 +39974,60 @@
 	     * Veien bak huset mitt : 63.428849, 10.443497
 	     * Det bruen huset ved grusbanen 63.431143, 10.447472
 	     * Branntrappa 63.429091, 10.443808
+	     * Lekeplassen 63.432436, 10.444699
 	     * */
 	    {
+	        tasks: {
+	            "1": {
+	                tasknumber: 1,
+	                taskid: "1",
+	                solved: false,
+	                answer: '',
+	                place: "Lekeplassen bak det røde huset",
+	                ttext: "Hvor mange mange vinduer har det lille huset ved siden av trampolinen?",
+	                location: {
+	                    latitude: 63.430939,
+	                    longitude: 10.440273
+	                },
+	                directions: {
+	                    bearing: 1,
+	                    direction: 0
+	                }
+	            },
+	            "2": {
+	                tasknumber: 2,
+	                taskid: "2",
+	                solved: false,
+	                answer: '',
+	                place: "Det brune huset ved grusbanen",
+	                ttext: "På vegen ved oppgangen henger det et svart skilt på veggen, hva er formen på figuren på skiltet?",
+	                location: {
+	                    latitude: 63.431143,
+	                    longitude: 10.447472
+	                },
+	                directions: {
+	                    bearing: 1,
+	                    direction: 0
+	                }
+	            },
+	            "3": {
+	                tasknumber: 3,
+	                taskid: "3",
+	                solved: false,
+	                answer: '',
+	                place: "Ved huset til pappaen til Isak",
+	                ttext: "I den grå kassen ved branntrappen, hvor mange spader ligger oppi?",
+	                location: {
+	                    latitude: 63.429091,
+	                    longitude: 10.443808
+	                },
+	                directions: {
+	                    bearing: 1,
+	                    direction: 0
+	                }
+	            }
+	        }
+	    }, {
 	        tasks: {
 	            "1": {
 	                tasknumber: 1,
