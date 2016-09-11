@@ -6,6 +6,9 @@ import * as L from 'js-lenses'
 import moment from 'moment'
 import geolib from 'geolib'
 
+
+
+
 const exampleQuestsStore =
 {
     selectedQuest: "1",
@@ -18,11 +21,11 @@ const exampleQuestsStore =
                     taskid: "1",
                     solved: false,
                     answer: '',
-                    place: "Huset",
-                    ttext: "Hva er fargen på gjerdet",
+                    place: "Det brune huset ved grusbanen",
+                    ttext: "I garasjen, hvilket symbol er tegnet i grusen helt innerst i hjørnet?",
                     location: {
-                        latitude: 63.430113,
-                        longitude: 10.436191
+                        latitude: 63.431143,
+                        longitude: 10.447472
                     },
                     directions: {
                         bearing: 1,
@@ -34,11 +37,11 @@ const exampleQuestsStore =
                     taskid: "2",
                     solved: false,
                     answer: '',
-                    place: "Bunkeren",
-                    ttext: "Hvor mange dører har den?",
+                    place: "Baksiden av huset til Pappaen til Isak",
+                    ttext: "Når du står ved enden av veien, hvor mange kumlokk ser man?",
                     location: {
-                        latitude: 62.430113,
-                        longitude: 9.436191
+                        latitude: 63.428849,
+                        longitude: 10.443497
                     },
                     directions: {
                         bearing: 1,
@@ -50,11 +53,11 @@ const exampleQuestsStore =
                     taskid: "3",
                     solved: false,
                     answer: '',
-                    place: "Kjelleren i huset til Isak",
-                    ttext: "",
+                    place: "Bunker 18",
+                    ttext: "Hvor mange tilhengere står parkert?",
                     location: {
-                        latitude: 63.430113,
-                        longitude: 10.436191
+                        latitude: 63.430939,
+                        longitude: 10.440273
                     },
                     directions: {
                         bearing: 1,
@@ -63,6 +66,7 @@ const exampleQuestsStore =
                 }
             }
         },
+
         {
             tasks: {
                 "1": {
@@ -70,11 +74,11 @@ const exampleQuestsStore =
                     taskid: "1",
                     solved: false,
                     answer: '',
-                    place: "Aastahagen",
-                    ttext: "Hvilken form har taket",
+                    place: "Foran huset til Pappaen til Isak",
+                    ttext: "Hvor mange planker er benken laget av?",
                     location: {
-                        latitude: 63.430113,
-                        longitude: 10.436191
+                        latitude: 63.429326,
+                        longitude: 10.443240
                     },
                     directions: {
                         bearing: 1,
@@ -86,11 +90,11 @@ const exampleQuestsStore =
                     taskid: "2",
                     solved: false,
                     answer: '',
-                    place: "Tordenskjold",
-                    ttext: "Hvilken form har hjulene?",
+                    place: "Bunker 18",
+                    ttext: "Hvor mange hjørner har grillhytta?",
                     location: {
-                        latitude: 62.430113,
-                        longitude: 9.436191
+                        latitude: 63.430939,
+                        longitude: 10.440273
                     },
                     directions: {
                         bearing: 1,
@@ -102,11 +106,11 @@ const exampleQuestsStore =
                     taskid: "3",
                     solved: false,
                     answer: '',
-                    place: "Majorstuen",
-                    ttext: "På lekeplassen står det et kunstverk som lyser. Hva er formen på det som lyser",
+                    place: "Det brune huset ved grusbanen",
+                    ttext: "I garasjen til huset, hva er formen på bjelken i taket",
                     location: {
-                        latitude: 63.430113,
-                        longitude: 10.436191
+                        latitude: 63.431143,
+                        longitude: 10.447472
                     },
                     directions: {
                         bearing: 1,
@@ -115,6 +119,14 @@ const exampleQuestsStore =
                 }
             }
         },
+        /*
+         * Lat long
+         * Bak Bunker 18 63.430939, 10.440273
+         * Lekeplassen ved huset mitt 63.429326, 10.443240
+         * Veien bak huset mitt : 63.428849, 10.443497
+         * Det bruen huset ved grusbanen 63.431143, 10.447472
+         * Branntrappa 63.429091, 10.443808
+         * */
         {
             tasks: {
                 "1": {
@@ -123,10 +135,10 @@ const exampleQuestsStore =
                     solved: false,
                     answer: '',
                     place: "Bunker 18",
-                    ttext: "Hva er formen på døra nærmest persaunetveien",
+                    ttext: "Hvor mange mange vinduer er det på veggen mot parkeringsplassen med tilhengere?",
                     location: {
-                        latitude: 63.430113,
-                        longitude: 10.436191
+                        latitude: 63.430939,
+                        longitude: 10.440273
                     },
                     directions: {
                         bearing: 1,
@@ -138,11 +150,11 @@ const exampleQuestsStore =
                     taskid: "2",
                     solved: false,
                     answer: '',
-                    place: "Huset til pappaen til Isak",
+                    place: "Det brune huset ved grusbanen",
                     ttext: "På vegen ved oppgangen henger det et svart skilt på veggen, hva er formen på figuren på skiltet?",
                     location: {
-                        latitude: 62.430113,
-                        longitude: 9.436191
+                        latitude: 63.431143,
+                        longitude: 10.447472
                     },
                     directions: {
                         bearing: 1,
@@ -154,11 +166,11 @@ const exampleQuestsStore =
                     taskid: "3",
                     solved: false,
                     answer: '',
-                    place: "Tregården restaurant",
-                    ttext: "Lekestativet har en lite tunell, hva er formen på tunellen?",
+                    place: "Ved huset til pappaen til Isak",
+                    ttext: "I den grå kassen ved branntrappen, hvor mange spader ligger oppi?",
                     location: {
-                        latitude: 63.430113,
-                        longitude: 10.436191
+                        latitude: 63.429091,
+                        longitude: 10.443808
                     },
                     directions: {
                         bearing: 1,
@@ -174,8 +186,8 @@ const exampleQuestsStore =
             taskid: "1",
             solved: false,
             answer: '',
-            place: "Huset",
-            ttext: "Hva er fargen på gjerdet",
+            place: "",
+            ttext: "",
             location: {
                 latitude: 63.430113,
                 longitude: 10.436191
@@ -190,8 +202,8 @@ const exampleQuestsStore =
             taskid: "2",
             solved: false,
             answer: '',
-            place: "Bunkeren",
-            ttext: "Hvor mange dører har den?",
+            place: "",
+            ttext: "",
             location: {
                 latitude: 62.430113,
                 longitude: 9.436191
@@ -206,7 +218,7 @@ const exampleQuestsStore =
             taskid: "3",
             solved: false,
             answer: '',
-            place: "Kjelleren i huset til Isak",
+            place: "",
             ttext: "",
             location: {
                 latitude: 63.430113,
