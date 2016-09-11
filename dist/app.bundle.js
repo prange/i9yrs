@@ -39949,7 +39949,7 @@
 	                solved: false,
 	                answer: '',
 	                place: "Bunker 18",
-	                ttext: "Hvor mange hjørner har grillhytta?",
+	                ttext: "Hvor mange hjørner har grillhytta til barnehagen?",
 	                location: {
 	                    latitude: 63.430939,
 	                    longitude: 10.440273
@@ -40051,7 +40051,7 @@
 	                solved: false,
 	                answer: '',
 	                place: "Det brune huset ved grusbanen",
-	                ttext: "På vegen ved oppgangen henger det et svart skilt på veggen, hva er formen på figuren på skiltet?",
+	                ttext: "På veien ved oppgangen henger det et svart skilt på veggen, hva er formen på figuren på skiltet?",
 	                location: {
 	                    latitude: 63.431143,
 	                    longitude: 10.447472
@@ -40138,7 +40138,7 @@
 	
 	    var heading = currentPos.heading;
 	
-	    return { distance: dist, direction: bearing - heading };
+	    return { distance: dist, direction: -(bearing - heading) };
 	};
 	
 	var questReducer = function questReducer() {
