@@ -331,8 +331,8 @@ const questReducer =
 
 
 const exampleTimeStore = {
-    endtime: moment("201609111600", "YYYYMMDDhhmm").valueOf(),
-    remaining: moment().to(moment("20160911600", "YYYYMMDDhhmm")).valueOf()
+    endtime: moment("201609111700", "YYYYMMDDhhmm").valueOf(),
+    remaining: moment().to(moment("20160911700", "YYYYMMDDhhmm")).valueOf()
 };
 
 const timeReducer =

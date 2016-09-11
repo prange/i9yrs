@@ -40175,8 +40175,8 @@
 	};
 	
 	var exampleTimeStore = {
-	    endtime: (0, _moment2.default)("201609111600", "YYYYMMDDhhmm").valueOf(),
-	    remaining: (0, _moment2.default)().to((0, _moment2.default)("20160911600", "YYYYMMDDhhmm")).valueOf()
+	    endtime: (0, _moment2.default)("201609111700", "YYYYMMDDhhmm").valueOf(),
+	    remaining: (0, _moment2.default)().to((0, _moment2.default)("20160911700", "YYYYMMDDhhmm")).valueOf()
 	};
 	
 	var timeReducer = function timeReducer() {
